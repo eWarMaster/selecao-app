@@ -1,0 +1,14 @@
+<h3>{{titulo}}</h3>
+<p class="escolhas" *ngIf="escolhaAte>1">Escolha até 3
+    <span [ngSwitch]="escolhidos">
+        <span *ngSwitchCase="0">(nenhum selecionado)</span>
+        <span *ngSwitchCase="1">({{escolhidos}} selecionado)</span>
+        <span *ngSwitchDefault>({{escolhidos}} selecionados)</span>
+    </span>
+</p>
+<p *ngFor="let opcao of opcoes; let i = index">
+    <input type="{{escolhaAte > 1 ? 'checkbox' : 'radio'}}" name="{{titulo}}" (change)="clicado($event)"
+        (click)="selecionado(i)" [disabled]="escolhidos>=escolhaAte && !selecionados[i]">
+    <span
+        [style.text-decoration-line]="escolhidos>=escolhaAte && !selecionados[i] ? 'line-through' : 'none'">{{opcao}}</span>
+</p>
