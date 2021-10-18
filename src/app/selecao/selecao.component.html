@@ -1,5 +1,5 @@
 <h3>{{titulo}}</h3>
-<p class="escolhas" *ngIf="escolhaAte>1">Escolha até 3
+<p class="escolhas" *ngIf="escolhaAte>1">Escolha até {{escolhaAte}}
     <span [ngSwitch]="escolhidos">
         <span *ngSwitchCase="0">(nenhum selecionado)</span>
         <span *ngSwitchCase="1">({{escolhidos}} selecionado)</span>
